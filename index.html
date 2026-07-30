@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4:13 Run Club — Oklahoma City</title>
+<meta name="description" content="4:13 Run Club is an Oklahoma City run club built on community, strength, and fellowship — rooted in Philippians 4:13. You can do all things.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --sage:        #90A892;
+    --sage-light:  #A9BFA3;
+    --sage-tint:   #EDF1E7;
+    --sage-deep:   #37452F;
+    --sage-deep-2: #2A3525;
+    --cream:       #F8F5EC;
+    --gold:        #F0B429;
+    --gold-hover:  #DE9F16;
+    --gold-text:   #A87823;
+    --ink:         #24281F;
+    --white:       #FFFFFF;
+
+    --display: "Fraunces", serif;
+    --body: "Work Sans", sans-serif;
+
+    --max: 1180px;
+    --edge: clamp(1.5rem, 5vw, 3.5rem);
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *,*::before,*::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  h1,h2,h3{
+    font-family: var(--display);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--edge);
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+    margin-bottom: 0.9rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 22px;
+    height: 2px;
+    background: var(--gold-text);
+    display:inline-block;
+    border-radius: 2px;
+  }
+
+  .section-head{
+    max-width: 640px;
+    margin-bottom: 2.75rem;
+  }
+  .section-head h2{
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    font-weight: 600;
+    color: var(--sage-deep);
+  }
+  .section-head p{
+    margin-top: 1rem;
+    font-size: 1.05rem;
+    color: #4B5245;
+    max-width: 52ch;
+  }
+  .scribble{
+    display:block;
+    width: 130px;
+    height: 18px;
+    margin-top: 0.6rem;
+    color: var(--gold);
+  }
+  .scribble.on-dark{ color: var(--sage-light); }
+  .scribble.on-sage{ color: var(--sage-deep); }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 100;
+    padding: 0.85rem var(--edge);
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    background: var(--sage-deep);
+    transition: box-shadow 0.35s ease, padding 0.35s ease;
+  }
+  header.site-nav.scrolled{
+    box-shadow: 0 4px 24px rgba(20,26,16,0.22);
+    padding: 0.55rem var(--edge);
+  }
+  .nav-logo{
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1;
+    color: var(--cream);
+    text-decoration:none;
+  }
+  .nav-logo img{ height: 34px; width:auto; }
+
+  nav.nav-links{
+    display:flex;
+    align-items:center;
+    gap: 1.6rem;
+    list-style:none;
+    margin:0; padding:0;
+  }
+  nav.nav-links a{
+    display:inline-flex;
+    align-items:center;
+    line-height: 1;
+    text-decoration:none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: rgba(248,245,236,0.9);
+    transition: opacity .2s ease;
+    opacity: 0.9;
+  }
+  nav.nav-links a:hover{ opacity: 1; }
+
+  .nav-cta{
+    background: var(--gold);
+    color: var(--sage-deep-2) !important;
+    padding: 0.55rem 1.15rem;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+    transition: background .25s ease;
+  }
+  .nav-cta:hover{ background: var(--gold-hover); }
+
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding: 0.4rem;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:"";
+    display:block;
+    width: 22px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    position:relative;
+    transition: background .35s ease;
+  }
+  .nav-toggle span::before{ position:absolute; top:-7px; }
+  .nav-toggle span::after{ position:absolute; top:7px; }
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    padding: 0.85rem 1.7rem;
+    border-radius: 100px;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration:none;
+    border: 1.5px solid transparent;
+    cursor:pointer;
+    transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-gold{ background: var(--gold); color: var(--sage-deep-2); }
+  .btn-gold:hover{ background: var(--gold-hover); }
+  .btn-outline-light{ border-color: rgba(255,255,255,0.55); color: var(--white); }
+  .btn-outline-light:hover{ background: rgba(255,255,255,0.12); }
+  .btn-sage{ background: var(--sage-deep); color: var(--cream); }
+  .btn-sage:hover{ background: var(--sage-deep-2); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--sage);
+    background-image: linear-gradient(rgba(28,36,24,0.72), rgba(28,36,24,0.8)), url("images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding: 7rem var(--edge) 4rem;
+    text-align:center;
+  }
+  .hero-burst{
+    position:absolute;
+    top:50%; left:50%;
+    width: min(1100px, 150vw);
+    height: min(1100px, 150vw);
+    transform: translate(-50%,-50%);
+    color: rgba(255,255,255,0.22);
+    animation: spin 130s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes spin{ to{ transform: translate(-50%,-50%) rotate(360deg); } }
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .hero-logo{
+    width: min(360px, 72vw);
+    height:auto;
+    margin-bottom: 1.4rem;
+    filter: drop-shadow(0 10px 18px rgba(20,30,15,0.14));
+  }
+  .hero-inner p.lede{
+    max-width: 46ch;
+    color: rgba(255,255,255,0.94);
+    font-size: 1.1rem;
+    margin: 0 0 2.2rem;
+  }
+  .hero-actions{
+    display:flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content:center;
+  }
+  .scroll-cue{
+    position:absolute;
+    bottom: 2rem; left:50%;
+    transform: translateX(-50%);
+    z-index:2;
+    color: rgba(255,255,255,0.8);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.4rem;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .scroll-cue svg{ animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(6px);} }
+
+  /* ---------- ABOUT ---------- */
+  .about{ background: var(--cream); padding: 6.5rem 0; }
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items:start;
+  }
+  .about-photo{
+    margin-top: 3.5rem;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 21/9;
+  }
+  .about-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .mission-quote{
+    background: var(--white);
+    border: 1px solid rgba(55,69,47,0.1);
+    border-left: 4px solid var(--gold);
+    border-radius: 14px;
+    padding: 2rem 2.1rem;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--sage-deep);
+  }
+  .pillars{
+    display:grid;
+    gap: 1.6rem;
+    margin-top: 1rem;
+  }
+  .pillar{
+    display:flex;
+    gap: 1rem;
+    align-items:flex-start;
+  }
+  .pillar .cross{
+    flex: none;
+    width: 30px; height:30px;
+    color: var(--gold);
+    margin-top: 0.15rem;
+  }
+  .pillar h3{
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--sage-deep);
+    margin-bottom: 0.25rem;
+  }
+  .pillar p{ margin:0; color:#4B5245; font-size: 0.96rem; }
+
+  .verse-card{
+    margin-top: 2.25rem;
+    padding: 1.75rem 1.9rem;
+    border: 1.5px solid var(--sage);
+    background: var(--sage-tint);
+    border-radius: 16px;
+  }
+  .verse-card svg{
+    width: 24px; height:24px;
+    color: var(--sage-deep);
+    margin-bottom: 0.85rem;
+  }
+  .verse-card p{
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.12rem;
+    line-height: 1.55;
+    color: var(--sage-deep);
+    margin: 0 0 0.6rem;
+  }
+  .verse-card span{
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+  }
+
+  /* ---------- SCHEDULE ---------- */
+  .schedule{ background: var(--sage-tint); padding: 6.5rem 0; }
+  .badge-row{
+    display:flex;
+    gap: 0.6rem;
+    flex-wrap:wrap;
+    margin-top: 1.2rem;
+  }
+  .badge{
+    background: var(--white);
+    border: 1px solid rgba(55,69,47,0.15);
+    color: var(--sage-deep);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.85rem;
+    border-radius: 100px;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+  .run-card{
+    background: var(--white);
+    border: 1px solid rgba(55,69,47,0.12);
+    border-radius: 18px;
+    padding: 1.7rem 1.6rem;
+    display:flex;
+    flex-direction:column;
+    gap: 0.9rem;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .run-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 34px rgba(55,69,47,0.1); }
+  .run-card .date{
+    font-family: var(--display);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.85rem;
+    color: var(--sage-deep);
+    line-height:1;
+  }
+  .run-card .day{
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+  }
+  .run-card .run-name{
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-top: -0.2rem;
+  }
+  .run-card .details{
+    display:flex;
+    flex-direction:column;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    color: #50564A;
+  }
+  .run-card .details span{ display:flex; gap:0.5rem; align-items:flex-start; }
+  .run-card .details svg{ flex:none; width:15px; height:15px; margin-top:0.18rem; color: var(--sage); }
+  .detail-link{
+    display:flex;
+    gap: 0.5rem;
+    align-items:flex-start;
+    color: inherit;
+    text-decoration:none;
+  }
+  .detail-link:hover{ color: var(--sage-deep); text-decoration: underline; }
+  .detail-link svg{ flex:none; width:15px; height:15px; margin-top:0.18rem; color: var(--sage); }
+
+  .run-card.special{
+    background: var(--sage-deep);
+    border-color: var(--sage-deep);
+    color: var(--cream);
+  }
+  .run-card.special .date{ color: var(--gold); }
+  .run-card.special .day{ color: var(--sage-light); }
+  .run-card.special .run-name{ color: var(--cream); }
+  .run-card.special .details{ color: rgba(248,245,236,0.85); }
+  .run-card.special .details svg{ color: var(--gold); }
+  .run-card.special .detail-link svg{ color: var(--gold); }
+  .run-card.special .detail-link:hover{ color: var(--gold); }
+  .run-card.special .tag{
+    align-self:flex-start;
+    background: var(--gold);
+    color: var(--sage-deep-2);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
+  }
+
+  /* RSVP area: button -> email form -> confirmation */
+  .rsvp-area{ margin-top: auto; }
+  .rsvp-btn{
+    width: 100%;
+    text-align:center;
+    padding: 0.7rem 1rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--sage-deep);
+    background: transparent;
+    color: var(--sage-deep);
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .rsvp-btn:hover{ background: var(--sage-tint); }
+  .rsvp-btn:active{ transform: scale(0.98); }
+  .run-card.special .rsvp-btn{
+    border-color: rgba(248,245,236,0.5);
+    color: var(--cream);
+  }
+  .run-card.special .rsvp-btn:hover{ background: rgba(248,245,236,0.14); }
+
+  .rsvp-form{
+    display:none;
+    gap: 0.5rem;
+  }
+  .rsvp-email{
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem 0.85rem;
+    border-radius: 100px;
+    border: 1.5px solid rgba(55,69,47,0.25);
+    background: var(--white);
+    font-family: var(--body);
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+  .rsvp-email:focus{ outline:none; border-color: var(--sage-deep); }
+  .run-card.special .rsvp-email{
+    border-color: rgba(248,245,236,0.35);
+    background: rgba(248,245,236,0.95);
+  }
+  .rsvp-submit{
+    flex: none;
+    padding: 0.6rem 1.1rem;
+    border-radius: 100px;
+    border: none;
+    background: var(--gold);
+    color: var(--sage-deep-2);
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background .2s ease;
+  }
+  .rsvp-submit:hover{ background: var(--gold-hover); }
+  .rsvp-submit:disabled{ opacity: 0.7; cursor: default; }
+
+  .rsvp-confirm{
+    display:none;
+    margin:0;
+    text-align:center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--sage-deep);
+    padding: 0.7rem 1rem;
+    background: var(--sage-tint);
+    border-radius: 100px;
+  }
+  .run-card.special .rsvp-confirm{
+    color: var(--cream);
+    background: rgba(248,245,236,0.14);
+  }
+  .rsvp-error{
+    display:none;
+    margin: 0.55rem 0 0;
+    font-size: 0.78rem;
+    color: #a33;
+    text-align:center;
+  }
+  .run-card.special .rsvp-error{ color: #f3b9b9; }
+
+  .rsvp-area.is-open .rsvp-btn{ display:none; }
+  .rsvp-area.is-open .rsvp-form{ display:flex; }
+  .rsvp-area.is-done .rsvp-btn{ display:none; }
+  .rsvp-area.is-done .rsvp-form{ display:none; }
+  .rsvp-area.is-done .rsvp-confirm{ display:block; }
+  .rsvp-area.show-error .rsvp-error{ display:block; }
+
+
+  /* ---------- EVENTS ---------- */
+  .events{ background: var(--cream); padding: 6.5rem 0; }
+
+  /* ---------- FAQ ---------- */
+  .faq{ background: var(--sage-tint); padding: 6.5rem 0; }
+  .faq-list{
+    max-width: 780px;
+    display:flex;
+    flex-direction:column;
+    gap: 0.9rem;
+  }
+  .faq-item{
+    background: var(--white);
+    border: 1px solid rgba(55,69,47,0.12);
+    border-radius: 14px;
+    overflow:hidden;
+  }
+  .faq-question{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background:none;
+    border:none;
+    cursor:pointer;
+    text-align:left;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--sage-deep);
+  }
+  .faq-icon{
+    flex:none;
+    width: 20px; height:20px;
+    color: var(--gold);
+    transition: transform .3s ease;
+  }
+  .faq-item.open .faq-icon{ transform: rotate(180deg); }
+  .faq-answer{
+    max-height: 0;
+    overflow:hidden;
+    transition: max-height .35s ease;
+  }
+  .faq-answer p{
+    margin:0;
+    padding: 0 1.5rem 1.25rem;
+    color: #4B5245;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ---------- MEMBER PERKS ---------- */
+  .perks{ background: var(--cream); padding: 6.5rem 0; }
+  .perk-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.4rem;
+  }
+  .perk-card{
+    background: var(--white);
+    border: 1px solid rgba(55,69,47,0.1);
+    border-radius: 18px;
+    padding: 1.8rem;
+    display:flex;
+    gap: 1.5rem;
+    align-items:center;
+  }
+  .perk-logo{
+    flex:none;
+    width: 108px;
+  }
+  .perk-logo img{ width:100%; height:auto; display:block; }
+  .perk-body h3{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--sage-deep);
+    margin: 0 0 0.4rem;
+  }
+  .perk-desc{ margin: 0 0 0.9rem; font-size: 0.94rem; color:#4B5245; line-height:1.5; }
+  .perk-links{ display:flex; flex-direction:column; gap: 0.45rem; }
+  .perk-link{
+    display:inline-flex;
+    align-items:center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--sage-deep);
+    text-decoration:none;
+  }
+  .perk-link:hover{ text-decoration:underline; color: var(--gold-text); }
+  .perk-link svg{ width:14px; height:14px; flex:none; color: var(--sage); }
+
+  /* ---------- PRAYER ---------- */
+  .prayer{ background: var(--sage-deep); color: var(--cream); padding: 6.5rem 0; text-align:center; }
+  .prayer .section-head{ margin-left:auto; margin-right:auto; text-align:center; }
+  .prayer .eyebrow{ color: var(--gold); }
+  .prayer .eyebrow::before{ display:none; }
+  .prayer .section-head h2{ color: var(--white); }
+  .prayer .section-head p{ color: rgba(248,245,236,0.82); }
+  .prayer-box{
+    max-width: 620px;
+    margin: 0 auto;
+    background: rgba(248,245,236,0.06);
+    border: 1px solid rgba(248,245,236,0.16);
+    border-radius: 20px;
+    padding: 2.2rem;
+    text-align: left;
+  }
+  .prayer-box form{ display:flex; flex-direction:column; align-items:center; }
+  .prayer-box form .field{ width:100%; }
+  .prayer-box .form-note{ text-align:center; }
+  .field{ margin-bottom: 1.2rem; }
+  .field label{
+    display:block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+    color: rgba(248,245,236,0.85);
+  }
+  .field input, .field textarea, .field select{
+    width:100%;
+    background: rgba(248,245,236,0.95);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--ink);
+    resize: vertical;
+  }
+  .field select{
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2337452F' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    background-size: 18px;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{
+    outline: none;
+    border-color: var(--gold);
+  }
+  .field-row{
+    display:flex;
+    gap: 1rem;
+  }
+  .field-row .field{ flex:1; }
+  .form-note{ font-size: 0.78rem; color: rgba(248,245,236,0.55); margin-top: 1rem; }
+  .form-error{
+    display:none;
+    font-size: 0.82rem;
+    color: #a33;
+    margin-top: 0.9rem;
+    text-align:center;
+  }
+  .form-error.show{ display:block; }
+  .prayer .form-error{ color: #f3b9b9; }
+
+  .confirm{
+    display:none;
+    text-align:center;
+    padding: 1.2rem 0.5rem;
+  }
+  .confirm.show{ display:block; }
+  .prayer-box.hidden-form form{ display:none; }
+  .confirm .mark{
+    width: 46px; height:46px;
+    margin: 0 auto 1rem;
+    color: var(--gold);
+  }
+  .confirm h3{ font-family: var(--display); font-size: 1.4rem; color: var(--white); margin-bottom:0.5rem; }
+  .confirm p{ color: rgba(248,245,236,0.82); margin:0; font-size:0.95rem; }
+
+  /* ---------- BECOME A PARTNER ---------- */
+  .partner{ background: var(--sage-tint); padding: 6.5rem 0; text-align:center; }
+  .partner .section-head{ margin-left:auto; margin-right:auto; text-align:center; }
+  .partner .eyebrow::before{ display:none; }
+  .partner-box{
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid rgba(55,69,47,0.12);
+    border-radius: 20px;
+    padding: 2.2rem;
+    text-align:left;
+  }
+  .partner-box .field label{ color: var(--sage-deep); }
+  .partner-box .confirm h3{ color: var(--sage-deep); }
+  .partner-box .confirm p{ color: #4B5245; }
+  .partner-box .confirm .mark{ color: var(--gold-text); }
+  .partner-box.hidden-form form{ display:none; }
+
+  /* ---------- WHAT'S YOUR WHY ---------- */
+  .why{
+    position:relative;
+    background: var(--sage-deep);
+    padding: 7rem 0;
+    overflow:hidden;
+  }
+  .why-marquee{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap: 2.5rem;
+    pointer-events:none;
+  }
+  .why-track{
+    display:flex;
+    gap: 3rem;
+    white-space:nowrap;
+    width: max-content;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.9rem;
+    color: rgba(248,245,236,0.14);
+    animation: whyScroll 55s linear infinite;
+  }
+  .why-track span{ flex:none; }
+  .why-track.why-track-b{
+    font-size: 1.4rem;
+    color: rgba(248,245,236,0.09);
+    animation-duration: 75s;
+    animation-direction: reverse;
+  }
+  @keyframes whyScroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+  .why-box{
+    position:relative;
+    z-index: 2;
+    max-width: 580px;
+    margin: 0 auto;
+    background: rgba(42,53,37,0.94);
+    border: 1px solid rgba(248,245,236,0.16);
+    border-radius: 20px;
+    padding: 2.4rem;
+    text-align:center;
+  }
+  .why-box .eyebrow{ justify-content:center; color: var(--gold); }
+  .why-box .eyebrow::before{ display:none; }
+  .why-box h2{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3.6vw, 2.2rem);
+    color: var(--white);
+    margin: 0 0 0.9rem;
+  }
+  .why-box p.why-intro{ color: rgba(248,245,236,0.82); margin: 0 0 1.7rem; font-size: 1rem; }
+  .why-form{
+    display:flex;
+    gap: 0.6rem;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .why-input{
+    flex: 1;
+    min-width: 220px;
+    padding: 0.8rem 1.1rem;
+    border-radius: 100px;
+    border: 1.5px solid transparent;
+    background: rgba(248,245,236,0.95);
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .why-input:focus{ outline:none; border-color: var(--gold); }
+  .why-thanks{
+    display:none;
+    margin: 1.1rem 0 0;
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 0.95rem;
+  }
+  .why-thanks.show{ display:block; }
+  @media (prefers-reduced-motion: reduce){
+    .why-track{ animation: none; }
+  }
+
+  /* ---------- SOCIAL ---------- */
+  .social{ background: var(--cream); padding: 5.5rem 0; text-align:center; }
+  .social .section-head{ margin-left:auto; margin-right:auto; text-align:center; }
+  .social .eyebrow::before{ display:none; }
+  .social-icons{
+    display:flex;
+    justify-content:center;
+    gap: 1.1rem;
+    margin-top: 1rem;
+  }
+  .social-icons a{
+    width: 54px; height:54px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid rgba(55,69,47,0.14);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--sage-deep);
+    transition: background .25s ease, color .25s ease, transform .25s ease;
+  }
+  .social-icons a:hover{
+    background: var(--sage-deep);
+    color: var(--cream);
+    transform: translateY(-3px);
+  }
+  .social-icons svg{ width:22px; height:22px; }
+
+  .gallery-wrap{
+    display:flex;
+    align-items:center;
+    gap: 0.9rem;
+    margin-top: 2.75rem;
+    text-align:left;
+  }
+  .gallery-track{
+    flex: 1;
+    display:flex;
+    gap: 1rem;
+    overflow-x:auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 0.4rem;
+  }
+  .gallery-track::-webkit-scrollbar{ height: 5px; }
+  .gallery-track::-webkit-scrollbar-track{ background: transparent; }
+  .gallery-track::-webkit-scrollbar-thumb{ background: rgba(55,69,47,0.22); border-radius: 10px; }
+  .gallery-slide{
+    flex: 0 0 calc((100% - 3*1rem)/4);
+    scroll-snap-align: start;
+    aspect-ratio: 4/5;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--sage-tint);
+  }
+  .gallery-slide img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    display:block;
+  }
+  .gallery-arrow{
+    flex: none;
+    width: 44px; height:44px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid rgba(55,69,47,0.15);
+    color: var(--sage-deep);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  .gallery-arrow:hover{ background: var(--sage-deep); color: var(--cream); }
+  .gallery-arrow svg{ width:18px; height:18px; }
+
+  /* ---------- SUBSCRIBE ---------- */
+  .subscribe{
+    background: var(--sage);
+    padding: 5.5rem 0;
+    text-align:center;
+  }
+  .subscribe .wrap{ max-width: 640px; }
+  .subscribe h2{
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--white);
+    font-weight:600;
+  }
+  .subscribe p{ color: rgba(255,255,255,0.9); margin: 0.9rem 0 1.8rem; }
+  .subscribe-form{
+    display:flex;
+    gap: 0.7rem;
+    max-width: 460px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .subscribe-form input{
+    flex:1;
+    min-width: 200px;
+    padding: 0.85rem 1.1rem;
+    border-radius: 100px;
+    border: 1.5px solid transparent;
+    font-family: var(--body);
+    font-size: 0.95rem;
+  }
+  .subscribe-form input:focus{ outline:none; border-color: var(--sage-deep); }
+  .subscribe .confirm h3{ color: var(--sage-deep-2); }
+  .subscribe .confirm p{ color: var(--sage-deep-2); opacity:0.85; }
+  .subscribe .confirm .mark{ color: var(--gold-text); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--sage-deep-2);
+    color: rgba(248,245,236,0.75);
+    padding: 3rem 0 2rem;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(248,245,236,0.14);
+  }
+  .footer-logo{ display:flex; align-items:center; gap:0.7rem; }
+  .footer-logo img{ height: 38px; width:auto; }
+  .footer-logo span{ font-family: var(--display); font-weight:600; color: var(--cream); font-size:1.05rem; }
+  footer nav ul{
+    list-style:none;
+    display:flex;
+    gap:1.6rem;
+    margin:0; padding:0;
+    flex-wrap:wrap;
+  }
+  footer nav a{ text-decoration:none; color: rgba(248,245,236,0.75); font-size:0.9rem; }
+  footer nav a:hover{ color: var(--cream); }
+  .footer-bottom{
+    padding-top: 1.6rem;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.6rem;
+    font-size: 0.8rem;
+    color: rgba(248,245,236,0.5);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    .about-grid{ grid-template-columns: 1fr; }
+    .card-grid{ grid-template-columns: repeat(2, 1fr); }
+    .gallery-slide{ flex-basis: calc((100% - 2*1rem)/3); }
+  }
+
+  @media (max-width: 760px){
+    nav.nav-links{
+      position:fixed;
+      top:0; right:0;
+      height:100vh;
+      width: min(78vw, 320px);
+      background: var(--sage-deep);
+      flex-direction:column;
+      align-items:center;
+      padding: 6rem 2rem 2rem;
+      gap: 1.6rem;
+      transform: translateX(100%);
+      transition: transform .35s ease;
+    }
+    nav.nav-links.open{ transform: translateX(0); }
+    nav.nav-links a{ color: var(--cream); font-size:1.05rem; }
+    .nav-cta{ margin-top:0.5rem; }
+    .nav-toggle{ display:block; }
+    .card-grid{ grid-template-columns: 1fr; }
+
+    /* Center content on mobile */
+    .section-head{ text-align:center; margin-left:auto; margin-right:auto; }
+    .section-head .eyebrow::before{ display:none; }
+    .about-grid{ text-align:center; }
+    .scribble{ margin-left:auto; margin-right:auto; }
+    .mission-quote{ text-align:center; }
+    .pillars{ justify-items:center; }
+    .pillar{ flex-direction:column; align-items:center; text-align:center; }
+    .verse-card{ width:100%; text-align:center; }
+    .about-photo{ aspect-ratio: 4/3; margin-top: 2.5rem; }
+    .badge-row{ justify-content:center; }
+
+    .subscribe-form{ justify-content:center; }
+
+    .gallery-wrap{ gap:0.6rem; }
+    .gallery-slide{ flex-basis: calc((100% - 1rem)/2); }
+
+    .perk-card{ flex-direction:column; text-align:center; }
+    .perk-logo{ width:120px; }
+    .perk-links{ align-items:center; }
+
+    .field-row{ flex-direction:column; gap:0; }
+    .partner-box{ margin-left:auto; margin-right:auto; }
+
+    .why{ padding: 5rem 0; }
+    .why-track{ font-size: 1.2rem; }
+    .why-track.why-track-b{ font-size: 0.95rem; }
+    .why-box{ padding: 1.8rem; }
+
+    .footer-top{ flex-direction:column; align-items:center; text-align:center; }
+    footer nav ul{ justify-content:center; }
+    .footer-bottom{ flex-direction:column; align-items:center; text-align:center; }
+  }
+
+  @media (max-width: 480px){
+    .gallery-slide{ flex-basis: 75%; }
+  }
+
+  /* ---------- LOADING SCREEN ---------- */
+  .loading-screen{
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--sage-deep);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 2rem;
+    text-align:center;
+    transition: opacity 0.9s ease;
+  }
+  .loading-screen.fade-out{
+    opacity: 0;
+    pointer-events: none;
+  }
+  .loading-text{
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--cream);
+    font-size: clamp(1.5rem, 4.8vw, 2.5rem);
+    max-width: 17ch;
+    line-height: 1.45;
+    margin: 0;
+  }
+  .loading-cursor{
+    display:inline-block;
+    width: 3px;
+    height: 1em;
+    margin-left: 3px;
+    background: var(--gold);
+    vertical-align: -0.15em;
+    animation: loadingBlink 0.85s steps(1) infinite;
+  }
+  @keyframes loadingBlink{ 50%{ opacity: 0; } }
+  body.is-loading{ overflow: hidden; }
+  @media (prefers-reduced-motion: reduce){
+    .loading-cursor{ animation: none; }
+  }
+
+  :focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div class="loading-screen" id="loadingScreen" aria-hidden="true">
+  <p class="loading-text"><span id="loadingTextInner"></span><span class="loading-cursor"></span></p>
+</div>
+
+<header class="site-nav" id="siteNav">
+  <a href="#top" class="nav-logo">
+    <img src="images/logo.png" alt="4:13 Run Club logo">
+    4:13 Run Club
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about">Mission</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#events">Events</a>
+    <a href="#prayer">Prayer</a>
+    <a href="#social">Follow</a>
+    <a href="mailto:lesly413club@gmail.com">Contact</a>
+    <a href="#subscribe" class="nav-cta">Join the Journey</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+  </button>
+</header>
+
+<section class="hero" id="top">
+  <svg class="hero-burst" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="currentColor" stroke-width="0.6" stroke-linecap="round">
+      <!-- rays generated via python, placeholder -->
+      <line x1="120.0" y1="100.0" x2="168.0" y2="100.0" stroke-dasharray="2,3"/>
+      <line x1="119.8" y1="103.1" x2="180.0" y2="112.7" stroke-dasharray="2,3"/>
+      <line x1="119.0" y1="106.2" x2="172.7" y2="123.6" stroke-dasharray="2,3"/>
+      <line x1="117.8" y1="109.1" x2="151.1" y2="126.0"/>
+      <line x1="116.2" y1="111.8" x2="145.7" y2="133.2"/>
+      <line x1="114.1" y1="114.1" x2="140.9" y2="140.9" stroke-dasharray="2,3"/>
+      <line x1="111.8" y1="116.2" x2="142.3" y2="158.2"/>
+      <line x1="109.1" y1="117.8" x2="127.2" y2="153.4" stroke-dasharray="2,3"/>
+      <line x1="106.2" y1="119.0" x2="124.8" y2="176.2"/>
+      <line x1="103.1" y1="119.8" x2="112.2" y2="177.1" stroke-dasharray="2,3"/>
+      <line x1="100.0" y1="120.0" x2="100.0" y2="194.1" stroke-dasharray="2,3"/>
+      <line x1="96.9" y1="119.8" x2="86.0" y2="188.2" stroke-dasharray="2,3"/>
+      <line x1="93.8" y1="119.0" x2="81.2" y2="157.8" stroke-dasharray="2,3"/>
+      <line x1="90.9" y1="117.8" x2="69.4" y2="160.0"/>
+      <line x1="88.2" y1="116.2" x2="63.4" y2="150.3"/>
+      <line x1="85.9" y1="114.1" x2="43.0" y2="157.0" stroke-dasharray="2,3"/>
+      <line x1="83.8" y1="111.8" x2="37.8" y2="145.2" stroke-dasharray="2,3"/>
+      <line x1="82.2" y1="109.1" x2="48.9" y2="126.1" stroke-dasharray="2,3"/>
+      <line x1="81.0" y1="106.2" x2="21.8" y2="125.4"/>
+      <line x1="80.2" y1="103.1" x2="33.3" y2="110.6"/>
+      <line x1="80.0" y1="100.0" x2="26.9" y2="100.0" stroke-dasharray="2,3"/>
+      <line x1="80.2" y1="96.9" x2="14.3" y2="86.4"/>
+      <line x1="81.0" y1="93.8" x2="38.4" y2="80.0"/>
+      <line x1="82.2" y1="90.9" x2="32.3" y2="65.5"/>
+      <line x1="83.8" y1="88.2" x2="31.9" y2="50.5" stroke-dasharray="2,3"/>
+      <line x1="85.9" y1="85.9" x2="33.4" y2="33.4" stroke-dasharray="2,3"/>
+      <line x1="88.2" y1="83.8" x2="57.8" y2="42.0"/>
+      <line x1="90.9" y1="82.2" x2="72.3" y2="45.6"/>
+      <line x1="93.8" y1="81.0" x2="82.5" y2="46.2"/>
+      <line x1="96.9" y1="80.2" x2="86.6" y2="15.5"/>
+      <line x1="100.0" y1="80.0" x2="100.0" y2="10.0" stroke-dasharray="2,3"/>
+      <line x1="103.1" y1="80.2" x2="113.0" y2="18.2"/>
+      <line x1="106.2" y1="81.0" x2="124.2" y2="25.6"/>
+      <line x1="109.1" y1="82.2" x2="140.2" y2="21.1"/>
+      <line x1="111.8" y1="83.8" x2="143.5" y2="40.2"/>
+      <line x1="114.1" y1="85.9" x2="140.6" y2="59.4"/>
+      <line x1="116.2" y1="88.2" x2="165.4" y2="52.5"/>
+      <line x1="117.8" y1="90.9" x2="178.3" y2="60.1" stroke-dasharray="2,3"/>
+      <line x1="119.0" y1="93.8" x2="167.0" y2="78.2"/>
+      <line x1="119.8" y1="96.9" x2="155.2" y2="91.3"/>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <img src="images/logo.png" alt="4:13 Run Club — You can do all things" class="hero-logo">
+    <p class="lede">A run club built in Oklahoma City on community, strength, and fellowship — because through Christ, we never run alone.</p>
+    <div class="hero-actions">
+      <a href="#schedule" class="btn btn-gold">See This Month's Schedule</a>
+      <a href="#about" class="btn btn-outline-light">Our Mission</a>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    Scroll
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+  <div class="about-grid">
+    <div>
+      <div class="eyebrow">Our Story</div>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem); font-weight:600; color:var(--sage-deep); margin-bottom:1.5rem;">Born in OKC. Built on Philippians 4:13.</h2>
+      <svg class="scribble on-sage" viewBox="0 0 130 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="margin-bottom:1.6rem;">
+        <path d="M2 10c20-8 40-8 60-2s50 6 66-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M8 15c22-5 44-5 62 0s44 3 58-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+      </svg>
+      <p style="color:#4B5245; font-size:1.02rem; margin-bottom:1.6rem;">4:13 Run Club started right here in Oklahoma City with one simple idea: lace up, show up, and do it together. Every run is a chance to build community, grow stronger, and walk out our faith side by side — one mile at a time.</p>
+      <div class="mission-quote">
+        “To remind people that they're capable of more than they think. Similar to life, running shows us that even when the body wants to quit, there's strength to keep going — and through Christ, we never run alone.”
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <svg class="cross" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 3v24M6 11h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <div>
+          <h3>Community</h3>
+          <p>We run in a pack, not alone. Every pace and every person is welcome at the back, the front, and everywhere between.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <svg class="cross" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 3v24M6 11h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <div>
+          <h3>Strength</h3>
+          <p>Physical and spiritual. We train the body, lean on the Spirit, and remind each other we can do all things.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <svg class="cross" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 3v24M6 11h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <div>
+          <h3>Fellowship</h3>
+          <p>Coffee after. Conversation always. The friendships built here tend to outlast the mile.</p>
+        </div>
+      </div>
+
+      <div class="verse-card">
+        <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 3v24M6 11h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <p>"I can do all things through Christ who strengthens me."</p>
+        <span>Philippians 4:13</span>
+      </div>
+    </div>
+  </div>
+
+    <div class="about-photo">
+      <img src="images/about-photo.jpg" alt="4:13 Run Club community gathered together after a group run" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="schedule" id="schedule">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">August 2026</div>
+      <h2>Run Schedule</h2>
+      <p>All paces. All ages. Come as you are.</p>
+      <div class="badge-row">
+        <span class="badge">All Paces</span>
+        <span class="badge">All Ages</span>
+      </div>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="run-card">
+        <span class="day">Wednesday</span>
+        <span class="date">Aug 5</span>
+        <span class="run-name">Run</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=Harvey%27s%20Bakery%2C%20301%20NW%2013th%20St%2C%20Oklahoma%20City%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Harvey's Bakery, OKC</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:00 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-05" data-event-name="Run — Harvey's Bakery">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+      <div class="run-card">
+        <span class="day">Sunday</span>
+        <span class="date">Aug 9</span>
+        <span class="run-name">Run</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=Embassy%20Kicks%2C%205001%20N%20Western%20Ave%2C%20Oklahoma%20City%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Embassy Kicks, OKC</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:00 AM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-09" data-event-name="Run — Embassy Kicks">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+      <div class="run-card">
+        <span class="day">Wednesday</span>
+        <span class="date">Aug 12</span>
+        <span class="run-name">Run</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=Harvey%27s%20Bakery%2C%20301%20NW%2013th%20St%2C%20Oklahoma%20City%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Harvey's Bakery, OKC</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:00 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-12" data-event-name="Run — Harvey's Bakery">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+      <div class="run-card">
+        <span class="day">Wednesday</span>
+        <span class="date">Aug 19</span>
+        <span class="run-name">Run</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=Harvey%27s%20Bakery%2C%20301%20NW%2013th%20St%2C%20Oklahoma%20City%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Harvey's Bakery, OKC</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:00 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-19" data-event-name="Run — Harvey's Bakery">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+      <div class="run-card">
+        <span class="day">Wednesday</span>
+        <span class="date">Aug 26</span>
+        <span class="run-name">Run</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=Harvey%27s%20Bakery%2C%20301%20NW%2013th%20St%2C%20Oklahoma%20City%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Harvey's Bakery, OKC</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:00 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-26" data-event-name="Run — Harvey's Bakery">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">August 2026</div>
+      <h2>This Month's Events</h2>
+      <p>Bible study, worship nights, and time together outside of the runs.</p>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="run-card special">
+        <span class="tag">Bible Study</span>
+        <span class="day">Monday</span>
+        <span class="date">Aug 3</span>
+        <span class="run-name">Pulse Bible Study</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=Perets%20Coffee%20Shop%2C%20Oklahoma%20City%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Perets Coffee Shop, OKC</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:00 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-03" data-event-name="Pulse Bible Study">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+      <div class="run-card special">
+        <span class="tag">Worship</span>
+        <span class="day">Tuesday</span>
+        <span class="date">Aug 4</span>
+        <span class="run-name">Rhythm Night Worship</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=7210%20NW%2039th%20Expy%2C%20Bethany%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> 7210 NW 39th Expy, Bethany, OK</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:30 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-04" data-event-name="Rhythm Night Worship">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+      <div class="run-card special">
+        <span class="tag">Worship</span>
+        <span class="day">Thursday</span>
+        <span class="date">Aug 6</span>
+        <span class="run-name">Upperroom Worship</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=620%20N%20Cemetery%20Rd%2C%20Yukon%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> 620 N Cemetery Rd, Yukon, OK</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:00 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-06" data-event-name="Upperroom Worship">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+      <div class="run-card special">
+        <span class="tag">Group Outing</span>
+        <span class="day">Friday</span>
+        <span class="date">Aug 21</span>
+        <span class="run-name">Group Outing</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=Chicken%20N%20Pickle%2C%20Oklahoma%20City%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> Chicken N' Pickle, OKC</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 8:00 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-21" data-event-name="Group Outing — Chicken N Pickle">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+      <div class="run-card special">
+        <span class="tag">Worship</span>
+        <span class="day">Thursday</span>
+        <span class="date">Aug 27</span>
+        <span class="run-name">BYN Worship</span>
+        <div class="details">
+          <a class="detail-link" href="https://www.google.com/maps/search/?api=1&query=4600%20E%202nd%20St%2C%20Edmond%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> 4600 E 2nd St, Edmond, OK</a>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 7:00 PM</span>
+        </div>
+        <div class="rsvp-area" data-event-date="2026-08-27" data-event-name="BYN Worship">
+          <button type="button" class="rsvp-btn">I'm Going!</button>
+          <form class="rsvp-form">
+            <input type="email" class="rsvp-email" placeholder="you@email.com" required aria-label="Your email">
+            <button type="submit" class="rsvp-submit">Confirm</button>
+          </form>
+          <p class="rsvp-confirm">You're in! 🎉 See you there.</p>
+          <p class="rsvp-error"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Questions?</div>
+      <h2>New Here? Start With This.</h2>
+      <p>Nervous about joining in on a run? Don't be. We're here to support each other. Even if you come alone, you will leave with connections that will last a lifetime.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Are kids allowed?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! All ages and levels are welcome.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>What distance is the run?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Our weekly runs are 2 miles.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Will we ever run a longer distance?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Potentially in the future! We are exploring longer run options.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Do I need to be a good runner?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>No! All levels are welcome and supported.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="perks" id="perks">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Member Perks</div>
+      <h2>Local Business Perks</h2>
+      <p>Real discounts from OKC businesses who love this community as much as we do.</p>
+    </div>
+
+    <div class="perk-grid">
+
+      <div class="perk-card">
+        <div class="perk-logo">
+          <img src="images/okie-bowls-logo.png" alt="Okie Bowls logo">
+        </div>
+        <div class="perk-body">
+          <h3>Okie Bowls</h3>
+          <p class="perk-desc">10% off at Okie Bowls every Wednesday when you mention the run club!</p>
+          <div class="perk-links">
+            <a class="perk-link" href="https://www.instagram.com/okiebowlsokc/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg> Follow on Instagram</a>
+            <a class="perk-link" href="https://www.google.com/maps/search/?api=1&query=Okie%20Bowls%2C%20308%20NW%2010th%20St%2C%20Oklahoma%20City%2C%20OK" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg> 308 NW 10th St, OKC</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="prayer" id="prayer">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">We're Here For You</div>
+      <h2>Prayer Requests</h2>
+      <p>Running is easier when we carry each other's burdens. Share what's on your heart — our team prays over every request.</p>
+    </div>
+
+    <div class="prayer-box" id="prayerBox">
+      <form id="prayerForm">
+        <input type="hidden" name="access_key" value="1cc8a56e-e08e-4339-b0ce-11000e241fd5">
+        <input type="hidden" name="subject" value="New Prayer Request — 4:13 Run Club">
+        <input type="hidden" name="from_name" value="4:13 Run Club Website">
+        <div class="field">
+          <label for="prayerName">Name (optional)</label>
+          <input type="text" id="prayerName" name="name" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="prayerRequest">Your prayer request</label>
+          <textarea id="prayerRequest" name="request" rows="4" placeholder="Share as much or as little as you'd like..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold">Submit Request</button>
+        <p class="form-note">Requests are shared only with our prayer team.</p>
+        <p class="form-error" id="prayerFormError"></p>
+      </form>
+
+      <div class="confirm" id="prayerConfirm">
+        <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 3v24M6 11h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <h3>Received, with love.</h3>
+        <p>We're praying with you. Thank you for trusting us with this.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partner" id="partner">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Get Involved</div>
+      <h2>Become a Partner</h2>
+      <p>Local business, vendor, or want to volunteer? We'd love to hear from you.</p>
+    </div>
+
+    <div class="partner-box" id="partnerBox">
+      <form id="partnerForm">
+        <input type="hidden" name="access_key" value="2a093291-c3a7-4793-b9bb-c8160f8f14bb">
+        <input type="hidden" name="subject" value="New Partner Inquiry — 4:13 Run Club">
+        <input type="hidden" name="from_name" value="4:13 Run Club Website">
+        <div class="field-row">
+          <div class="field">
+            <label for="partnerName">Name</label>
+            <input type="text" id="partnerName" name="name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="partnerPhone">Phone Number</label>
+            <input type="tel" id="partnerPhone" name="phone" placeholder="(405) 555-0123" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="partnerEmail">Email</label>
+          <input type="email" id="partnerEmail" name="email" placeholder="you@email.com" required>
+        </div>
+        <div class="field">
+          <label for="partnerType">I'm interested in being a...</label>
+          <select id="partnerType" name="interest" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="Vendor">Vendor</option>
+            <option value="Partner">Partner</option>
+            <option value="Volunteer">Volunteer</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="partnerMessage">Message</label>
+          <textarea id="partnerMessage" name="message" rows="4" placeholder="Tell us a bit about what you have in mind..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold">Submit</button>
+        <p class="form-error" id="partnerFormError"></p>
+      </form>
+
+      <div class="confirm" id="partnerConfirm">
+        <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 3v24M6 11h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <h3>Thank you!</h3>
+        <p>Thank you for your interest, our team will be in touch soon!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="why-marquee" aria-hidden="true">
+    <div class="why-track" id="whyTrackA"></div>
+    <div class="why-track why-track-b" id="whyTrackB"></div>
+  </div>
+  <div class="wrap">
+    <div class="why-box">
+      <div class="eyebrow">Tell Us</div>
+      <h2>What's Your Why?</h2>
+      <p class="why-intro">Everyone has a reason they lace up. Share yours — it might be exactly what someone else needs to hear.</p>
+      <form class="why-form" id="whyForm">
+        <input type="text" class="why-input" id="whyInput" maxlength="140" placeholder="I run because..." required aria-label="What's your why">
+        <button type="submit" class="btn btn-gold">Share</button>
+      </form>
+      <p class="form-error" id="whyFormError"></p>
+      <p class="why-thanks" id="whyThanks">Thank you for sharing! 🧡</p>
+    </div>
+  </div>
+</section>
+
+<section class="social" id="social">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Join The Journey</div>
+      <h2>Follow Along</h2>
+      <p>Runs, recaps, and reminders that you can do all things — right in your feed.</p>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/4.13club/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@4.13club" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4v10.2a3.3 3.3 0 1 1-2.7-3.25M14 4c.4 2 2 3.6 4 3.9"/></svg>
+      </a>
+    </div>
+
+    <!--
+      Photo gallery — drop your own photos in by replacing the src on each
+      .gallery-slide img below (currently pointing at numbered placeholders).
+      The layout auto-scrolls at 4 across on desktop, 2–3 on tablet, ~1.2 on mobile.
+    -->
+    <div class="gallery-wrap">
+      <button class="gallery-arrow" id="galleryPrev" aria-label="Previous photos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="gallery-track" id="galleryTrack">
+                <div class="gallery-slide"><img src="images/gallery-1.jpg" alt="4:13 Run Club members celebrating and cheering after a run" loading="lazy"></div>
+        <div class="gallery-slide"><img src="images/gallery-2.jpg" alt="Runner giving a high five mid-stride during a 4:13 Run Club run" loading="lazy"></div>
+        <div class="gallery-slide"><img src="images/gallery-3.jpg" alt="4:13 Run Club member pushing a double stroller through a high-five tunnel" loading="lazy"></div>
+        <div class="gallery-slide"><img src="images/gallery-4.jpg" alt="Group of women from 4:13 Run Club posing together after a run" loading="lazy"></div>
+        <div class="gallery-slide"><img src="images/gallery-5.jpg" alt="Group of men and a dog from 4:13 Run Club posing on the street" loading="lazy"></div>
+        <div class="gallery-slide"><img src="images/gallery-6.jpg" alt="Three 4:13 Run Club members posing outside Embassy Kicks" loading="lazy"></div>
+        <div class="gallery-slide"><img src="images/gallery-7.jpg" alt="Two 4:13 Run Club members holding a 4:13 Run Club sign" loading="lazy"></div>
+        <div class="gallery-slide"><img src="images/gallery-8.jpg" alt="Large group of 4:13 Run Club members gathered together on a rainy day" loading="lazy"></div>
+      </div>
+      <button class="gallery-arrow" id="galleryNext" aria-label="Next photos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="subscribe" id="subscribe">
+  <div class="wrap">
+    <div id="subscribeDefault">
+      <h2>Stay In The Loop</h2>
+      <p>Monthly schedules, event invites, and community updates — straight to your inbox.</p>
+      <form class="subscribe-form" id="subscribeForm">
+        <input type="email" placeholder="you@email.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-sage">Subscribe</button>
+      </form>
+    </div>
+    <div class="confirm" id="subscribeConfirm">
+      <svg class="mark" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 3v24M6 11h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <h3>You're in!</h3>
+      <p>Keep an eye on your inbox — we'll see you at the next run.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="4:13 Run Club logo">
+        <span>4:13 Run Club</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">Mission</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#prayer">Prayer</a></li>
+          <li><a href="#social">Follow</a></li>
+          <li><a href="mailto:lesly413club@gmail.com">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>4:13 Run Club · Oklahoma City, OK</span>
+      <span>© 2026 4:13 Run Club. You can do all things.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // Loading screen — typewriter intro, then fade to reveal the site
+  (function(){
+    const message = "You are so loved, tomorrow needs you.";
+    const textEl = document.getElementById('loadingTextInner');
+    const screenEl = document.getElementById('loadingScreen');
+    if(!textEl || !screenEl) return;
+
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.body.classList.add('is-loading');
+
+    function fadeAndRemove(delay){
+      setTimeout(() => {
+        screenEl.classList.add('fade-out');
+        document.body.classList.remove('is-loading');
+        setTimeout(() => { screenEl.style.display = 'none'; }, 950);
+      }, delay);
+    }
+
+    if(reduceMotion){
+      textEl.textContent = message;
+      fadeAndRemove(850);
+      return;
+    }
+
+    let i = 0;
+    function typeNext(){
+      if(i <= message.length){
+        textEl.textContent = message.slice(0, i);
+        i++;
+        setTimeout(typeNext, 42);
+      } else {
+        fadeAndRemove(1100);
+      }
+    }
+    typeNext();
+  })();
+
+  // Nav scroll state
+  const nav = document.getElementById('siteNav');
+  const onScroll = () => {
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  };
+  document.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Prayer form — submits to Web3Forms
+  const prayerForm = document.getElementById('prayerForm');
+  const prayerConfirm = document.getElementById('prayerConfirm');
+  const prayerBox = document.getElementById('prayerBox');
+  const prayerFormError = document.getElementById('prayerFormError');
+  prayerForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    prayerFormError.classList.remove('show');
+    const submitBtn = prayerForm.querySelector('button[type=submit]');
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try{
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(prayerForm)
+      });
+      const result = await res.json();
+      if(result.success){
+        prayerBox.classList.add('hidden-form');
+        prayerConfirm.classList.add('show');
+      } else {
+        throw new Error(result.message || 'submit-failed');
+      }
+    } catch(err){
+      prayerFormError.textContent = "Something went wrong — please try again in a moment.";
+      prayerFormError.classList.add('show');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+
+  // Subscribe form (front-end only — no backend wired up yet)
+  const subscribeForm = document.getElementById('subscribeForm');
+  const subscribeDefault = document.getElementById('subscribeDefault');
+  const subscribeConfirm = document.getElementById('subscribeConfirm');
+  subscribeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    subscribeDefault.style.display = 'none';
+    subscribeConfirm.classList.add('show');
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const btn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.toggle('open');
+      answer.style.maxHeight = isOpen ? answer.scrollHeight + 'px' : null;
+    });
+  });
+
+  // Become a Partner form — submits to Web3Forms
+  const partnerForm = document.getElementById('partnerForm');
+  const partnerBox = document.getElementById('partnerBox');
+  const partnerConfirm = document.getElementById('partnerConfirm');
+  const partnerFormError = document.getElementById('partnerFormError');
+  partnerForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    partnerFormError.classList.remove('show');
+    const submitBtn = partnerForm.querySelector('button[type=submit]');
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try{
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(partnerForm)
+      });
+      const result = await res.json();
+      if(result.success){
+        partnerBox.classList.add('hidden-form');
+        partnerConfirm.classList.add('show');
+      } else {
+        throw new Error(result.message || 'submit-failed');
+      }
+    } catch(err){
+      partnerFormError.textContent = "Something went wrong — please try again in a moment.";
+      partnerFormError.classList.add('show');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+
+  // "I'm Going!" RSVP — collects an email per event and saves it to Supabase.
+  //
+  // SETUP NEEDED (one-time, in Supabase):
+  // 1. Create a table called "rsvps" with columns:
+  //      id          uuid, primary key, default gen_random_uuid()
+  //      event_date  date
+  //      event_name  text
+  //      email       text
+  //      created_at  timestamptz, default now()
+  // 2. Turn on Row Level Security for that table, then add a policy that lets
+  //    the "anon" role INSERT rows (check expression: true). Do NOT add a
+  //    public SELECT policy — that keeps the email list private; read it from
+  //    the Supabase table editor or a future admin dashboard using your
+  //    service role key (never expose that key in this file).
+  // 3. Paste your Project URL and anon public API key below (Settings > API
+  //    in your Supabase project). Until these are filled in, the buttons still
+  //    work but will show a friendly "not connected yet" message instead of
+  //    saving anywhere.
+  const SUPABASE_URL = "https://bartrdeylnuadhujzouj.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJhcnRyZGV5bG51YWRodWp6b3VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU0MjA1NzQsImV4cCI6MjEwMDk5NjU3NH0.gUB29wmXvd0QufOY-nqMndk_xzg6gaZVIcWGZ7rh8fs";
+  const RSVP_TABLE = "rsvps";
+
+  let supabaseClient = null;
+  if(
+    window.supabase &&
+    SUPABASE_URL.indexOf('YOUR_') !== 0 &&
+    SUPABASE_ANON_KEY.indexOf('YOUR_') !== 0
+  ){
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+
+  async function saveRsvp(eventDate, eventName, email){
+    if(!supabaseClient){
+      const err = new Error('not-configured');
+      throw err;
+    }
+    const { error } = await supabaseClient
+      .from(RSVP_TABLE)
+      .insert([{ event_date: eventDate, event_name: eventName, email: email }]);
+    if(error) throw error;
+  }
+
+  document.querySelectorAll('.rsvp-area').forEach((area) => {
+    const storageKey = 'rsvp_' + area.dataset.eventDate;
+    try{
+      if(localStorage.getItem(storageKey) === '1'){
+        area.classList.add('is-done');
+      }
+    }catch(e){}
+
+    const btn = area.querySelector('.rsvp-btn');
+    const form = area.querySelector('.rsvp-form');
+    const emailInput = area.querySelector('.rsvp-email');
+    const submitBtn = area.querySelector('.rsvp-submit');
+    const errorEl = area.querySelector('.rsvp-error');
+
+    btn.addEventListener('click', () => {
+      area.classList.add('is-open');
+      emailInput.focus();
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      if(!email) return;
+
+      area.classList.remove('show-error');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Saving...';
+
+      try{
+        await saveRsvp(area.dataset.eventDate, area.dataset.eventName, email);
+        try{ localStorage.setItem(storageKey, '1'); }catch(err){}
+        area.classList.remove('is-open');
+        area.classList.add('is-done');
+      }catch(err){
+        errorEl.textContent = (err && err.message === 'not-configured')
+          ? "RSVPs aren't connected yet — check back soon."
+          : "Something went wrong — please try again.";
+        area.classList.add('show-error');
+      }finally{
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Confirm';
+      }
+    });
+  });
+
+  // Photo gallery — horizontal scroll with arrow controls
+  const galleryTrack = document.getElementById('galleryTrack');
+  const galleryPrev = document.getElementById('galleryPrev');
+  const galleryNext = document.getElementById('galleryNext');
+  if(galleryTrack && galleryPrev && galleryNext){
+    const scrollAmount = () => galleryTrack.clientWidth * 0.85;
+    galleryPrev.addEventListener('click', () => {
+      galleryTrack.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+    galleryNext.addEventListener('click', () => {
+      galleryTrack.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+  }
+
+  // "What's Your Why?" — flowing background of submitted answers.
+  //
+  // SETUP NEEDED (one-time, in Supabase), same project as the RSVP table:
+  // 1. Create a table called "whys" with columns:
+  //      id          uuid, primary key, default gen_random_uuid()
+  //      text        text
+  //      created_at  timestamptz, default now()
+  // 2. Turn on Row Level Security, then add TWO policies this time:
+  //      - INSERT for the "anon" role (check expression: true) — so anyone can share one
+  //      - SELECT for the "anon" role (using expression: true) — so the site can read
+  //        them back and flow them across the screen. Unlike the RSVP table, this one
+  //        is meant to be public, so a read policy is intentional here.
+  // No new URL/key needed — this reuses the same SUPABASE_URL / SUPABASE_ANON_KEY above.
+  //
+  // Note: submissions appear instantly with no review step, since that's what was asked
+  // for. There's no automatic filtering of what people type. If anything inappropriate
+  // shows up, the simplest fix is to delete that row directly in the Supabase table
+  // editor — it'll disappear from the site next time someone loads the page.
+  const WHY_TABLE = "whys";
+  const WHY_FALLBACK = [
+    "I run because it clears my head.",
+    "For my kids.",
+    "To prove to myself I can keep going.",
+    "Community I didn't know I needed.",
+    "Because Christ gives me strength to finish.",
+    "To get stronger, inside and out.",
+    "For the friendships made at mile one.",
+    "Because showing up matters more than pace."
+  ];
+
+  const whyTrackA = document.getElementById('whyTrackA');
+  const whyTrackB = document.getElementById('whyTrackB');
+  const whyForm = document.getElementById('whyForm');
+  const whyInput = document.getElementById('whyInput');
+  const whyFormError = document.getElementById('whyFormError');
+  const whyThanks = document.getElementById('whyThanks');
+
+  function renderWhyTracks(list){
+    if(!whyTrackA || !whyTrackB) return;
+    const safeList = list && list.length ? list : WHY_FALLBACK;
+    // Split into two rows and duplicate each so the CSS -50% scroll loops seamlessly
+    const half = Math.ceil(safeList.length / 2);
+    const rowA = safeList.slice(0, half);
+    const rowB = safeList.slice(half).length ? safeList.slice(half) : safeList;
+    const buildSpans = (arr) => arr.concat(arr).map((t) => `<span>"${t}"</span>`).join('');
+    whyTrackA.innerHTML = buildSpans(rowA);
+    whyTrackB.innerHTML = buildSpans(rowB);
+  }
+
+  let whyList = WHY_FALLBACK.slice();
+  renderWhyTracks(whyList);
+
+  async function loadWhys(){
+    if(!supabaseClient) return;
+    try{
+      const { data, error } = await supabaseClient
+        .from(WHY_TABLE)
+        .select('text')
+        .order('created_at', { ascending: false })
+        .limit(60);
+      if(!error && data && data.length){
+        whyList = data.map((row) => row.text).filter(Boolean);
+        renderWhyTracks(whyList);
+      }
+    }catch(e){
+      // Keep showing the fallback list if this fails for any reason.
+    }
+  }
+  loadWhys();
+
+  if(whyForm){
+    whyForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const value = whyInput.value.trim();
+      if(!value) return;
+
+      whyFormError.classList.remove('show');
+      whyThanks.classList.remove('show');
+      const submitBtn = whyForm.querySelector('button[type=submit]');
+      const originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sharing...';
+
+      try{
+        if(!supabaseClient){
+          throw new Error('not-configured');
+        }
+        const { error } = await supabaseClient
+          .from(WHY_TABLE)
+          .insert([{ text: value }]);
+        if(error) throw error;
+
+        whyList = [value].concat(whyList).slice(0, 60);
+        renderWhyTracks(whyList);
+        whyInput.value = '';
+        whyThanks.classList.add('show');
+      }catch(err){
+        whyFormError.textContent = (err && err.message === 'not-configured')
+          ? "Sharing isn't connected yet — check back soon."
+          : "Something went wrong — please try again.";
+        whyFormError.classList.add('show');
+      }finally{
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
